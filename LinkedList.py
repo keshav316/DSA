@@ -33,13 +33,36 @@ class SinglyLinkedList:
             while (curr != None):
                 print(curr.val,end=" ")
                 curr=curr.next
-                
+    def insert(self, pos, val):
+        curr=self.head
+        count=0
+        prev_node=None
+        new_node=Node(val)
+        if pos==0:
+            new_node.next=self.head
+            self.head=new_node
+            return
+        else:
+            try:
+                while(count!=pos):
+                    prev_node=curr
+                    curr=curr.next
+                    count+=1
+        
+            except:
+                print("Invalid position")
+                return 
+            
+            new_node.next=curr
+            prev_node.next=new_node
 
 node1=SinglyLinkedList()
 node1.append(5)
 node1.append(10)
 node1.append(7)
 
+
+node1.insert(0, 15)
 node1.traverse()
     
 
